@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
+    let taxPercentage: Double = 0.05
     @State private var laborCost: String = ""
     @State private var materialCost: String = ""
     @State private var subtotal: Double = 0
@@ -15,7 +16,7 @@ struct ContentView: View {
     @State private var total: Double = 0
     
     var body: some View {
-        VStack(spacing: 20) {
+        VStack(alignment: .center, spacing: 20) {
             HStack {
                 Text("Labor:")
                     .frame(width: 80, alignment: .trailing)
@@ -42,19 +43,19 @@ struct ContentView: View {
             HStack {
                 Text("Subtotal:")
                     .frame(width: 80, alignment: .trailing)
-                Text("$\(subtotal, specifier: "%.2f")")
+                Text("$\(subtotal, specifier: "%.2f")").frame(width: 100)
             }
             
             HStack {
                 Text("Tax:")
                     .frame(width: 80, alignment: .trailing)
-                Text("$\(tax, specifier: "%.2f")")
+                Text("$\(tax, specifier: "%.2f")").frame(width: 100)
             }
             
             HStack {
                 Text("Total:")
                     .frame(width: 80, alignment: .trailing)
-                Text("$\(total, specifier: "%.2f")")
+                Text("$\(total, specifier: "%.2f")").frame(width: 100)
             }
         }
     }
@@ -63,7 +64,7 @@ struct ContentView: View {
         let labor = Double(laborCost) ?? 0
         let material = Double(materialCost) ?? 0
         subtotal = labor + material
-        tax = subtotal * 0.05
+        tax = subtotal * taxPercentage
         total = subtotal + tax
     }
 }
