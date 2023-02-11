@@ -23,7 +23,6 @@ struct ContentView: View {
                     .frame(width: 100)
                     .keyboardType(.decimalPad)
             }
-            .padding(.bottom, 10)
             
             HStack {
                 Text("Materials:")
@@ -32,7 +31,6 @@ struct ContentView: View {
                     .frame(width: 100)
                     .keyboardType(.decimalPad)
             }
-            .padding(.bottom, 20)
             
             Button(action: {
                 self.calculateCosts()
@@ -40,7 +38,6 @@ struct ContentView: View {
                 Text("Calculate")
                     .frame(minWidth: 0, maxWidth: .infinity)
             }
-            .padding(.bottom, 20)
             
             HStack {
                 Text("Subtotal:")
@@ -60,7 +57,6 @@ struct ContentView: View {
                 Text("$\(total, specifier: "%.2f")")
             }
         }
-        .padding()
     }
     
     func calculateCosts() {
